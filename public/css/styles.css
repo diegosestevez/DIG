@@ -1,0 +1,93 @@
+body{
+  background: linear-gradient(90deg, #c3f0f7 25%, #e6f9fc );
+  color: #0f6674;
+  font-family: 'Fraunces', serif;
+}
+
+h1{
+  font-weight: 900;
+  font-style: italic;
+}
+
+h2{
+  font-weight: 600;
+  font-style: italic;
+}
+
+a{
+  color:inherit;
+}
+
+a:hover{
+  text-decoration: none;
+}
+
+p{
+  font-weight: 300;
+  color:#000;
+}
+
+th{
+  color: #0f6674;
+}
+
+td{
+  color:#000;
+  font-weight: 300;
+}
+
+.logo{
+  font-family: 'Acme', sans-serif;
+  font-size: 1.5rem;
+}
+
+.card{
+  background-color: #f7fdfe;
+}
+
+.gallery-title{
+  text-align: center;
+}
+
+.img-bounding{
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.img-overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease-in;
+  background-color: #000;
+}
+
+.img-bounding:hover .img-overlay{
+  opacity: .75;
+}
+
+.img-scale{
+  width: 100%;
+  height: 350px;
+}
+
+.img-bounding:hover .img-scale{
+  opacity: .5;
+  transform: scale(1.1);
+  transition: transform .5s ease;
+}
+
+.img-title{
+  color:#fff;
+  text-align: center;
+  margin: 50px;
+}
+
+.img-description{
+  color:#fff;
+  text-align: center;
+}

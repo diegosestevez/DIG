@@ -1,0 +1,92 @@
+<%- include('partials/header'); %>
+	<title>Manage Categories</title>
+</head>
+
+<body>
+
+	<div class="card container mt-4">
+		<div class="card-body">
+			<h1>Categories</h1>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Category Name</th>
+						<th>Category Discription</th>
+						<th>Update Category</th>
+						<th>Delete Category</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% categories.forEach(function(category){ %>
+					<tr>
+						<td> <%= category.title %> </td>
+						<td> <%= category.desc %></td>
+						<td><a class="btn btn-warning" href="/managecategories/<%= category.title %>">Update</a></td>
+						<td>
+							<form action="/deletecategory" method="post">
+								<button class="btn btn-danger" type="submit" name="delete" value="<%= category.title %>">Delete</button>
+							</form>
+						</td>
+					</tr>
+					<% }); %>
+				</tbody>
+			</table>
+			<div class="bd-example">
+				<a class="btn btn-secondary" href="/">Exit</a>
+				<button type="button" class="btn btn-info" data-toggle="modal" data-target="#modalMenu">
+					Create New Category
+				</button>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="modalMenu" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-xl">
+			<div class="modal-content container">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+
+					<div class="card-body">
+						<h1>Create a New Category</h1>
+						<form action="/" method="POST" enctype="multipart/form-data">
+							<div class="form-group my-3">
+								<label for="name">Category Name</label>
+								<input class="form-control" type="text" id="title" name="title" required>
+							</div>
+							<div class="form-group my-3">
+								<label for="desc">Category Description</label>
+								<textarea id="desc" class="form-control" name="desc" required>
+						</textarea>
+							</div>
+
+							<hr />
+							<h2>Create Image in Category</h2>
+							<div>
+								<label for="imageTitle">Name Image</label>
+								<input class="form-control" type="text" type="text" name="imageTitle" required>
+							</div>
+							<div class="form-group my-3">
+								<label for="desc">Image Description</label>
+								<textarea class="form-control" name="imageDesc" required>
+						</textarea>
+							</div>
+							<div class="form-group my-3">
+								<label for="image">Upload Category Image</label>
+								<input class="form-control-file" type="file" id="image" name="image" required>
+							</div>
+							<button type="button" class="btn btn-secondary my-4" data-dismiss="modal">Close</button>
+							<button class="btn btn-info my-4" type="submit">Create New</button>
+
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<%-include('partials/footer') %>
